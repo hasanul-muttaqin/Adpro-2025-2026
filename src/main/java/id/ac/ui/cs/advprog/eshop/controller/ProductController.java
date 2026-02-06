@@ -20,19 +20,19 @@ public class ProductController {
     public String createProductPage(Model model) {
         Product product = new Product();
         model.addAttribute("product", product);
-        return "createProduct";
+        return "CreateProduct";
     }
 
     @PostMapping("/create")
     public String createProduct(@ModelAttribute Product product, Model model) {
         service.create(product);
-        return "redirect:/list";
+        return "redirect:/product/list";
     }
 
     @GetMapping("/list")
     public String listProductPage(Model model) {
         List<Product> allProducts = service.findtAll();
         model.addAttribute("products", allProducts);
-        return "ProductList";
+        return "ListProduct";
     }
 }
